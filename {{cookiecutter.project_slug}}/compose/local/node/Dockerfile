@@ -1,7 +1,7 @@
 # run serve local stage
 FROM node:lts-alpine as build-stage
 WORKDIR /app
-COPY package*.json ./
+COPY ./{{cookiecutter.frontend_project_slug}}/package*.json ./
 RUN npm install
 #COPY . .
 COPY ./{{cookiecutter.frontend_project_slug}} ./

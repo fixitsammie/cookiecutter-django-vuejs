@@ -386,8 +386,7 @@ def main():
     if "{{ cookiecutter.frontend_pipeline }}" != "Gulp":
         remove_gulp_files()
         remove_packagejson_file()
-        if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_node_dockerfile()
+        
 
     if "{{ cookiecutter.cloud_provider}}" == "None":
         print(
