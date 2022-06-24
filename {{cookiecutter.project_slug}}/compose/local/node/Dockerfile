@@ -1,12 +1,12 @@
 # run serve local stage
 FROM node:lts-alpine as build-stage
-WORKDIR /app
-COPY ./{{cookiecutter.frontend_project_slug}}/package*.json ./
-RUN npm install
-#COPY . .
+WORKDIR /frontend
+
 COPY ./{{cookiecutter.frontend_project_slug}} ./
-RUN npm run serve
-EXPOSE 8080
+RUN npm install && npm cache clean --force
+
+ENV PATH ./node_modules/.bin/:$PATH
+
 
 # production stage
 #FROM nginx:stable-alpine as production-stage
